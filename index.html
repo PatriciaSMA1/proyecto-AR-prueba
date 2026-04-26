@@ -2,32 +2,45 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Notre Dame AR</title>
+    <title>Notre Dame AR - Final</title>
+    <!-- Librerías -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
+
 <body style="margin: 0px; overflow: hidden;">
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+    <!-- Escena con parámetros para evitar el temblor (smooth) -->
+    <a-scene 
+        embedded 
+        vr-mode-ui="enabled: false;"
+        arjs="sourceType: webcam; debugUIEnabled: false; smooth: true; smoothCount: 10; smoothTolerance: .01; smoothThreshold: 5;">
         
         <a-assets>
-            <a-asset-item id="catedral" src="catedral.glb"></a-asset-item>
+            <!-- He añadido v=v20 para refrescar la memoria del móvil -->
+            <a-asset-item id="catedral" src="catedral.glb?v=v20"></a-asset-item>
         </a-assets>
 
-        <a-marker preset="hiro">
-            <!-- SCALE: 0.00015 (Tu tamaño ideal) -->
-            <!-- ROTATION: 90 (Para levantarla hacia arriba en lugar de hacia abajo) -->
-            <!-- 180: Giro para intentar que la fachada principal te mire -->
+        <!-- Marcador con suavizado activado -->
+        <a-marker 
+            preset="hiro" 
+            smooth="true" 
+            smoothCount="10" 
+            smoothTolerance="0.01" 
+            smoothThreshold="5">
+
+            <!-- MODELO: Escala 0.00030 | Posición ajustada para centrar | Rotación corregida -->
             <a-entity 
                 gltf-model="#catedral" 
                 scale="0.00030 0.00030 0.00030" 
-                position="0 0 4"  
+                position="0 0 1.5" 
                 rotation="90 180 0">
             </a-entity>
+
         </a-marker>
 
-        <!-- Luces para que la catedral no se vea oscura -->
-        <a-entity light="type: ambient; intensity: 1.5;"></a-entity>
-        <a-entity light="type: directional; intensity: 0.5" position="1 2 1"></a-entity>
+        <!-- Iluminación para que se vea profesional -->
+        <a-entity light="type: ambient; intensity: 1.2;"></a-entity>
+        <a-entity light="type: directional; intensity: 0.6" position="1 2 1"></a-entity>
 
         <a-entity camera></a-entity>
     </a-scene>
