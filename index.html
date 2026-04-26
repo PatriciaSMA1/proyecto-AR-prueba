@@ -28,15 +28,17 @@
             smoothTolerance="0.01" 
             smoothThreshold="5">
 
-            <!-- MODELO: Escala 0.00030 | Posición ajustada para centrar | Rotación corregida -->
-            <a-entity 
-                gltf-model="#catedral" 
-                scale="0.00030 0.00030 0.00030" 
-                position="0 0 1.5" 
-                rotation="90 180 0">
-            </a-entity>
+            <!-- POSITION: 0 0 0 para que esté centrada en el cuadrado -->
+            <!-- SCALE: 0.00030 (El tamaño que te gustó) -->
+            <!-- ROTATION: 90 180 0 (La orientación que te funcionó) -->
+        <a-entity 
+            gltf-model="#catedral" 
+            scale="0.00030 0.00030 0.00030" 
+            position="0 0 0" 
+            rotation="90 180 0">
+        </a-entity>
 
-        </a-marker>
+</a-marker>
 
         <!-- Iluminación para que se vea profesional -->
         <a-entity light="type: ambient; intensity: 1.2;"></a-entity>
