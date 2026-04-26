@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Proyecto Final AR</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
-
 <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        
+        <a-assets>
+            <!-- He añadido ?v=2 para que el móvil no use la versión vieja -->
+            <a-asset-item id="modelo" src="enano.glb?v=2"></a-asset-item>
+        </a-assets>
 
-    <a-assets>
-        <!-- Aquí es donde le dices qué archivo leer -->
-        <a-asset-item id="mi-modelo" src="enano.glb?v=1"></a-asset-item>
-    </a-assets>
-
-<a-marker preset="hiro">
-    <a-entity 
-        gltf-model="#mi-modelo"
-        position="0 0 0"
-        rotation="0 0 0"
-        scale="1 1 1">
-    </a-entity>
-    </a-marker>
-
-        <!-- He añadido luces para que tu modelo se vea con mejores colores -->
-        <a-entity light="type: ambient; intensity: 0.8; color: #FFF"></a-entity>
-        <a-entity light="type: directional; intensity: 0.6" position="-1 2 1"></a-entity>
+        <a-marker preset="hiro">
+            <!-- PRUEBA DE TAMAÑO: Escala 10 para ver si aparece -->
+            <!-- Si sale muy grande, luego lo bajamos a 1 -->
+            <a-entity 
+                gltf-model="#modelo" 
+                scale="10 10 10" 
+                position="0 0 0"
+                rotation="0 0 0">
+            </a-entity>
+        </a-marker>
 
         <a-entity camera></a-entity>
     </a-scene>
