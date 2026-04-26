@@ -14,14 +14,14 @@
         </a-assets>
 
        <a-marker preset="hiro">
-            <!-- SCALE: 0.00015 (Tu tamaño ideal) -->
-            <!-- ROTATION: 90 (Para levantarla hacia arriba en lugar de hacia abajo) -->
-            <!-- 180: Giro para intentar que la fachada principal te mire -->
+            <!-- SCALE: 0.0008 (Tamaño maqueta normal, ni gigante ni enana) -->
+            <!-- ROTATION: -90 90 0 (Suele ser la clave para que los escaneos de Sketchfab se levanten y miren de frente) -->
+            <!-- POSITION: 0 0 0 -->
             <a-entity 
                 gltf-model="#catedral" 
-                scale="0.00015 0.00015 0.00015" 
+                scale="0.0008 0.0008 0.0008" 
                 position="0 0 0" 
-                rotation="90 180 0">
+                rotation="-90 90 0">
             </a-entity>
         </a-marker>
 
